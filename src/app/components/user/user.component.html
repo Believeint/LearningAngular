@@ -3,8 +3,63 @@
   <li>Adresss: {{ address.street }} {{ address.city }} {{ address.state }}</li>
   <li>Hobbies: {{ hobbies[1] }}</li>
 </ul>
+<fieldset>
+  <legend>Person</legend>
+  <ul>
+    <li>Name: {{ name }}</li>
+    <li>Age: {{ age }}</li>
+    <li>Email: {{ email }}</li>
+    <li>
+      Address: {{ address.street }} {{ address.city }} {{ address.state }}
+    </li>
+  </ul>
+  <ol>
+    <li *ngFor="let hobby of hobbies; let i = index">
+      {{ i + 1 }}: {{ hobby }}
+    </li>
+  </ol>
+</fieldset>
 
 <button (click)="onClick()">Click Me</button>
+<form>
+  <div>
+    <label for="name">Name:</label><br />
+    <input id="name" name="name" type="text" [(ngModel)]="name" />
+  </div>
+  <div>
+    <label for="age">Age:</label><br />
+    <input id="age" name="age" type="number" [(ngModel)]="age" />
+  </div>
+  <div>
+    <label for="email">Email:</label><br />
+    <input id="email" name="email" type="email" [(ngModel)]="email" />
+  </div>
+  <div>
+    <label for="street"></label><br />
+    <input id="street" name="street" type="text" [(ngModel)]="address.street" />
+  </div>
+  <div>
+    <label for="city">City:</label><br />
+    <input id="city" name="city" type="text" [(ngModel)]="address.city" />
+  </div>
+  <div>
+    <label for="state">State:</label><br />
+    <input id="state" name="state" type="text" [(ngModel)]="address.state" />
+  </div>
+  <div>
+    <label for="hobbies">Hobby 1</label><br />
+    <input id="hobby1" name="hobby1" type="text" [(ngModel)]="hobbies[0]" />
+  </div>
+  <div>
+    <label for="hobbies">Hobby 2</label><br />
+    <input id="hobby2" name="hobby2" type="text" [(ngModel)]="hobbies[1]" />
+  </div>
+  <div>
+    <label for="hobbies">Hobby 3</label><br />
+    <input id="hobby3" name="hobby3" type="text" [(ngModel)]="hobbies[2]" />
+  </div>
+</form>
+
 <h1>Hobbies</h1>
 <form (submit)="addHobby(hobby.value)">
   <div>
